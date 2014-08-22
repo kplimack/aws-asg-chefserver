@@ -6,6 +6,9 @@ Scripts to register and unregister a node with a chef-server on provision and te
 * Ubuntu
 
 # Setup
+## AMI
+Create a debian/ubuntu AMI.  You can make node instantiation faster by running your base recipes on it and doing as much building as appropriate now.  Make sure that this node has the validation key on it so that new nodes can register with the chef-server!  When you're done, make sure to delete /etc/chef/client.pem so that there's no key issues with new nodes.
+
 ## AWS IAM
 Nodes must be created with an IAM role that contains a policy to allow `ec2:DescribeTags`
 * Add a policy to the IAM role for the ASG nodes
