@@ -25,7 +25,12 @@ Nodes must be created with an IAM role that contains a policy to allow `ec2:Desc
 ## Scripts
 * place init.sh and killme.sh in /etc/init.d
 * edit init/killme to create hostnames using your schema
-I use a schema that is <location>-<role/class>###.asg.<tld>.  I've always been a fan of made up TLDs, as they designate internal connections implicitly.
+I use a schema that is descriptive and enumerable/unique
+```
+<location>-<role/class>-<instanceID>.[asg.]<tld>
+i.e. use1d-worker-i3456d7fdf.asg.face
+```
+.  I've always been a fan of made up TLDs, as they designate internal connections implicitly.
 `hostname="use1d-worker-$(getmeta /meta-data/instance-id).asg.derp"`
 ```
 update-rc.d init.sh start 2
